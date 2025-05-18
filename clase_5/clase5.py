@@ -82,7 +82,7 @@ while True:
 print(f"\nLa suma de los números positivos es: {suma}\n")'''
 
 # Ejercicio maquina expendedora
-'''print("\n==== Maquina Expendedora de Bebidas ====")
+print("\n==== Maquina Expendedora de Bebidas ====")
 
 while True:
     print("\n================")
@@ -130,12 +130,12 @@ while True:
         
 print("\n================")
 print("¡Finalizado!")
-print("================")'''
+print("================")
 
 # Listas
 
-numero = [3, "Hola", 6, 7, True]
+'''numero = [3, "Hola", 6, 7, True]
 
 nombre = ["Juan", "David"]
 
-print(nombre[0])
+print(nombre[0])'''
