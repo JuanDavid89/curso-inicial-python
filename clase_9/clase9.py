@@ -58,3 +58,5 @@ while True:
 print("\n--- Clientes Registrados ---")
 for cliente in clientes:
    print(f"Código: {cliente['código']}, Nombre: {cliente['nombre']}, Ciudad: {cliente['ciudad']}")
+
+   # Clase 9
