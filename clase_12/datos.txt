@@ -1,0 +1,2 @@
+El análisis de datos es el proceso de inspeccionar, limpiar, transformar y modelar datos con el objetivo de extraer conclusiones significativas, identificar patrones y tendencias, y apoyar la toma de decisiones. En esencia, se trata de convertir datos brutos en información útil y comprensible para diversos propósitos. 
+

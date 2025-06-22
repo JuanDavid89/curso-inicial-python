@@ -1,0 +1,3 @@
+Aguacate|Fruta|890
+Cambur|Fruta|1120
+Cotufas|Chucherias|8000
