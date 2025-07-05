@@ -28,6 +28,16 @@ def mostrar_alumnos():
     
     for alumno in alumnos:
         print(f"ID: {alumno[0]}, Nombre: {alumno[1]}, Edad: {alumno[2]}, Curso: {alumno[3]}")
+        
+def actualizar_curso(id_alumno, nuevo_curso):
+    cursor.execute("UPDATE alumnos SET curso = ? WHERE id = ?", (nuevo_curso, id_alumno))
+    conexion.commit()
+    print(f"\nCurso: {nuevo_curso} actualizado exitosamente en el ID: {id_alumno}.")
+    
+def eliminar_alumno(id_alumno):
+    cursor.execute("DELETE FROM alumnos WHERE id = ?", (id_alumno,))
+    conexion.commit()
+    print("\nAlumno con ID {id_alumno} eliminado exitosamente.")
 
 while True:
     print("\n================ Gestión de Alumnos ==========================")
@@ -59,55 +69,38 @@ while True:
             
     elif opcion == 2:
         mostrar_alumnos()
+             
+    elif opcion == 3:
+        mostrar_alumnos()
+        id_alumno = input("\nIngrese el ID del alumno a actualizar: ").strip()
+        nuevo_curso = input("Ingrese el nuevo curso: ").strip()
         
+        if id_alumno.isdigit():
+            actualizar_curso(int(id_alumno), nuevo_curso)
+        else:
+            print("El ID debe ser un número válido.")
             
-    '''elif opcion == 3:
-        buscar = input("Ingrese el nombre del producto a buscar: ").strip().lower()
-        encontrados = 0
-        for producto in productos:
-            if buscar == producto[0].lower():
-                print("Producto encontrado:")
-                print(f"- Nombre: {producto[0]}")
-                print(f"- Categoría: {producto[1]}")
-                print(f"- Precio: ${producto[2]}")
-                encontrados += 1
-        if encontrados == 0:
-            print("Producto no encontrado.")
 
     elif opcion == 4:
-        eliminar = input("Ingrese el nombre exacto del producto a eliminar: ").strip().lower()
-        eliminado = False
-        for producto in productos:
-            if eliminar == producto[0].lower():
-                productos.remove(producto)
-                print("Producto eliminado con éxito.")
-                eliminado = True
-                break
-        if not eliminado:
-            print("Producto no encontrado.")
-
-    elif opcion == 5:
-        if len(productos) > 0:
-            print("\n=================== Productos ingresados ===================")
-            contador = 1
-            for producto in productos:
-                print(f"{contador}. Nombre: {producto[0]} | Categoría: {producto[1]} | Precio: ${producto[2]}")
-                contador += 1
-            print("============================================================\n")
+        mostrar_alumnos()
+        
+        id_alumno = input("\nIngrese el ID del alumno a eliminar: ").strip()
+        if id_alumno.isdigit():
+            eliminar_alumno(int(id_alumno))
         else:
-            print("No se ingresaron productos.")
-            print("============================================================\n")
+            print("El ID debe ser un número válido.")
+        
+
+    elif opcion == 5:        
+        print("============================================================\n")
 
         print("                   Fin del programa...")
         print("\n============================================================\n")
         break
-
+    
     else:
         print("Opción fuera de rango (1-5). Intente nuevamente.")
-
+        
 print("============================================================")
 print("              Desarrollado por: Juan Saavedra            ")
-print("============================================================\n")'''
-
-conexion.close()
-
+print("============================================================\n")
