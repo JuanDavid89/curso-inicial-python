@@ -1,0 +1,23 @@
+=== LISTADO DE PRODUCTOS ===
+
+ID: 1
+Nombre: Guitarra
+Descripción: Instrumento de cuerda
+Cantidad: 150
+Precio: $250.00
+Categoría: Instrumentos músicales
+----------------------------------------
+ID: 3
+Nombre: Bajo
+Descripción: Instrumento de 4 cuerdas
+Cantidad: 180
+Precio: $180.00
+Categoría: Instrumentos músicales
+----------------------------------------
+ID: 4
+Nombre: Cuatro
+Descripción: Instrumento de 4 cuerdas
+Cantidad: 200
+Precio: $290.00
+Categoría: Instrumentos músicales
+----------------------------------------

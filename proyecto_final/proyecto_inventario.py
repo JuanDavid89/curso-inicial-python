@@ -229,6 +229,37 @@ def reporte_stock_bajo(limite):
     
     finally:
         conexion.close()
+
+# Función para exportar datos       
+def exportar_a_txt(nombre_archivo="productos_exportados.txt"):
+    conexion = sqlite3.connect("inventario.db")
+    cursor = conexion.cursor()
+
+    try:
+        cursor.execute("SELECT * FROM productos")
+        productos = cursor.fetchall()
+
+        if not productos:
+            print(Fore.YELLOW + "[INFO] No hay productos para exportar.")
+            return
+
+        with open(nombre_archivo, "w", encoding="utf-8") as archivo:
+            archivo.write("=== LISTADO DE PRODUCTOS ===\n\n")
+            for producto in productos:
+                archivo.write(f"ID: {producto[0]}\n")
+                archivo.write(f"Nombre: {producto[1]}\n")
+                archivo.write(f"Descripción: {producto[2]}\n")
+                archivo.write(f"Cantidad: {producto[3]}\n")
+                archivo.write(f"Precio: ${producto[4]:.2f}\n")
+                archivo.write(f"Categoría: {producto[5]}\n")
+                archivo.write("-" * 40 + "\n")
+
+        print(Fore.GREEN + f"[ÉXITO] Productos exportados correctamente a '{nombre_archivo}'.")
+
+    except sqlite3.Error as e:
+        print(Fore.RED + f"[ERROR] No se pudieron exportar los datos: {e}")
+    finally:
+        conexion.close()
         
 def salir_del_programa():
     print(Fore.BLUE + "\n" + "=" * 60)
@@ -246,11 +277,12 @@ def menu():
         print(Fore.WHITE + "4. Eliminar producto")
         print(Fore.WHITE + "5. Buscar producto por ID / Nombre / Categoría")
         print(Fore.WHITE + "6. Reporte de producto por cantidad")
+        print(Fore.WHITE + "7. Exportar productos a TXT")
         print(Fore.BLUE + "============================================================")
-        print(Fore.WHITE + "7. Salir")
+        print(Fore.WHITE + "8. Salir")
         print(Fore.BLUE + "============================================================")
 
-        opcion = input(Fore.WHITE + "Seleccione una opción entre 1 y 7: ").strip()
+        opcion = input(Fore.WHITE + "Seleccione una opción entre 1 y 8: ").strip()
 
         if not opcion.isdigit():
             print("Debe ingresar solo números.")
@@ -291,7 +323,11 @@ def menu():
                 print(Fore.RED + "El límite debe ser un número entero.")
         
         elif opcion == 7:
+            exportar_a_txt()
+            
+        elif opcion == 8:
             salir_del_programa()
             break
+
         
 menu()
