@@ -231,10 +231,10 @@ def reporte_stock_bajo(limite):
         conexion.close()
         
 def salir_del_programa():
-    print(Fore.BLUE + "\n============================================================")
-    print(Fore.WHITE + "       Gracias por utilizar el sistema de inventario.")
-    print(Fore.WHITE + "             Desarrollado por: Juan Saavedra")
-    print(Fore.BLUE + "============================================================\n")
+    print(Fore.BLUE + "\n" + "=" * 60)
+    print(Fore.WHITE + "Gracias por utilizar el sistema de inventario.".center(60))
+    print(Fore.WHITE + "Desarrollado por: Juan Saavedra".center(60))
+    print(Fore.BLUE + "=" * 60 + "\n")
 
 def menu():
     # Menú de opciones a seleccionar
